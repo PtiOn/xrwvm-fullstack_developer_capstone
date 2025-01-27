@@ -13,6 +13,18 @@ img{
   margin-bottom: 1%;
 }
 
+.card-img-top {
+  width: 200px; /* Remplit la largeur de son conteneur */
+  height: 200px; /* Fixe une hauteur uniforme pour toutes les images */
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  object-fit: cover; /* Maintient les proportions en rognant si nécessaire */
+  object-position: center top;
+  align-self: center; /* Centre l'image horizontalement */
+}
+
 .row{
   display: flex;  
   flex: 1;
@@ -123,4 +135,42 @@ img{
     border-radius:50px;
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
+}
+
+.contact-container {
+  padding:2%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  text-align:center;
+  box-shadow: 2px 2px 2px 3px #999;
+  margin: auto;
+  min-width: 350px;
+  width: 80%;
+  margin-top:3%;
+}
+
+.split-left {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+
+.split-right {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.contact-info {
+  font-family: Arial, Helvetica, sans-serif; /* Police simple et légère */
+  font-size: 18px; /* Taille standard pour le texte */
+  color: #6b92d9; /* Bleu doux pour le texte */
+  line-height: 1.8; /* Espacement vertical entre les lignes */
+  text-align: center; /* Centre le texte */
+}
+
+.contact-info strong {
+  font-weight: bold; /* Met les titres en gras */
+  display: block; /* Chaque titre sur une ligne distincte */
 }
