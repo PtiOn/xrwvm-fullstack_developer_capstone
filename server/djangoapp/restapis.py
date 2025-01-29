@@ -26,7 +26,7 @@ def get_request(endpoint, **kwargs):
         response = requests.get(request_url)
         return response.json()
     except Exception as err:
-        print(f"Network exception occurred {err=}, {type(err)=}"")
+        print(f"Network exception occurred {err=}, {type(err)=}")
 
 
 def analyze_review_sentiments(text):
