@@ -30,9 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
                  ('https://romainpelouz-8000.theianext-0-labs-'
-                 'prod-misc-tools-us-east-0.proxy.cognitiveclass.ai'),
+                  'prod-misc-tools-us-east-0.proxy.cognitiveclass.ai'),
                  ('https://romainpelouz-8000.theiadockernext-0-labs-'
-                 'prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'),]
+                  'prod-theiak8s-4-tor01.proxy.cognitiveclass.ai'),]
 CSRF_TRUSTED_ORIGINS = [('https://romainpelouz-8000.theianext-0-labs-prod'
                         '-misc-tools-us-east-0.proxy.cognitiveclass.ai'),
                         ('https://romainpelouz-8000.theiadockernext-0-labs-'
