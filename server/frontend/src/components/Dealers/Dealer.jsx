@@ -24,17 +24,23 @@ const Dealer = () => {
   let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
   let post_review = root_url+`postreview/${id}`;
   
-  const get_dealer = async ()=>{
-    const res = await fetch(dealer_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
-    
-    if(retobj.status === 200) {
-      let dealerobjs = Array.from(retobj.dealer)
-      setDealer(dealerobjs[0])
+  const get_dealer = async () => {
+    try {
+        const res = await fetch(dealer_url, {
+            method: "GET",
+        });
+        const retobj = await res.json();
+
+        if (retobj.status === 200) {
+            let dealerobjs = retobj.dealer;
+            setDealer(dealerobjs);
+        } else {
+            console.log("Error", retobj.status); // Utilisation de la virgule
+        }
+    } catch (error) {
+        console.error("An error occurred while fetching the dealer:", error);
     }
-  }
+};
 
   const get_reviews = async ()=>{
     const res = await fetch(reviews_url, {
@@ -58,6 +64,7 @@ const Dealer = () => {
 
   useEffect(() => {
     get_dealer();
+    console.log("Dealer data:", dealer);
     get_reviews();
     if(sessionStorage.getItem("username")) {
       setPostReview(<a href={post_review}><img src={review_icon} style={{width:'10%',marginLeft:'10px',marginTop:'10px'}} alt='Post Review'/></a>)

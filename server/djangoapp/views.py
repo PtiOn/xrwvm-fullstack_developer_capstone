@@ -112,12 +112,17 @@ def get_dealer_reviews(request, dealer_id):
         return JsonResponse({"status":400,"message":"Bad Request"})
 
 def get_dealer_details(request, dealer_id):
-    if(dealer_id):
-        endpoint = "/fetchDealer/"+str(dealer_id)
-        dealership = get_request(endpoint)
-        return JsonResponse({"status":200,"dealer":dealership})
-    else:
-        return JsonResponse({"status":400,"message":"Bad Request"})
+    try:
+        if(dealer_id):
+            endpoint = "/fetchDealer/"+str(dealer_id)
+            dealership = get_request(endpoint)
+            return JsonResponse({"status":200,"dealer":dealership})
+        else:
+            return JsonResponse({"status":400,"message":"Bad Request"})
+    except Exception as e:
+        print("Hello 3")
+        print(e)
+        return JsonResponse({"status":400,"message":"Error"})
 
 def add_review(request):
     if(request.user.is_anonymous == False):
