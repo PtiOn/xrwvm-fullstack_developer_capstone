@@ -7,8 +7,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 # CarMake model
 class CarMake(models.Model):
     name = models.CharField(
-        max_length=50, 
-        unique=True, 
+        max_length=50,
+        unique=True,
         verbose_name="Car Make Name"
     )  # Nom de la marque de voiture
     description = models.TextField(verbose_name="Description")
@@ -20,13 +20,13 @@ class CarMake(models.Model):
 # CarModel model
 class CarModel(models.Model):
     car_make = models.ForeignKey(
-        CarMake, 
-        on_delete=models.CASCADE, 
+        CarMake,
+        on_delete=models.CASCADE,
         related_name="car_models",
         verbose_name="Car Make"
     )  # Relation Many-to-One avec CarMake
     name = models.CharField(max_length=100, verbose_name="Model Name")
-    
+
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
@@ -34,9 +34,9 @@ class CarModel(models.Model):
         ('HATCHBACK', 'Hatchback'),
     ]
     type = models.CharField(
-        max_length=10, 
-        choices=CAR_TYPES, 
-        default='SUV', 
+        max_length=10,
+        choices=CAR_TYPES,
+        default='SUV',
         verbose_name="Type"
     )
     year = models.IntegerField(
